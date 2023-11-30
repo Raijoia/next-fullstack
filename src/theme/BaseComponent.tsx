@@ -10,6 +10,10 @@ interface StyleBaseComponent {
 }
 
 const StyledBaseComponent = styled.div<StyleBaseComponent>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
   ${({ styleSheet }) => parseStyleSheet(styleSheet)}
 `;
 
