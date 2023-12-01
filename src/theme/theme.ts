@@ -1,7 +1,9 @@
+import { colors } from './defaults/colors';
 import { typography } from './defaults/typography';
 
 const theme = {
-  typography
+  typography,
+  colors
 };
 
 export type Theme = typeof theme;

@@ -6,9 +6,20 @@ import Feed from './patterns/Feed/Feed';
 import Footer from './patterns/Footer/Footer';
 import Menu from './patterns/Menu/Menu';
 
+import { useTheme } from '@src/theme/ThemeProvider';
+
 export default function HomeScreen() {
+  const theme = useTheme();
+
   return (
-    <Box tag="maim">
+    <Box
+      tag="main"
+      styleSheet={{
+        backgroundColor: theme.colors.neutral.x400,
+        flex: 1,
+        alignItems: 'center'
+      }}
+    >
       <Background />
       <Menu />
       <Feed>
