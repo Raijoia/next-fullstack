@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Breakpoints } from '@skynexui/responsive_stylesheet';
 
 // Generic type for responsive properties

@@ -4,6 +4,7 @@ import React from 'react';
 import Box from '@src/components/Box/Box';
 import Icon from '@src/components/Icon/Icon';
 import Image from '@src/components/Image/Image';
+import Link from '@src/components/Link/Link';
 import Text from '@src/components/Text/Text';
 
 interface FeedProps {
@@ -30,7 +31,9 @@ Feed.Header = () => {
       <Icon name="youtube" />
       <Icon name="twitter" />
       <Icon name="instagram" />
-      <Icon name="github" />
+      <Link href="https://github.com/Raijoia">
+        <Icon name="github" />
+      </Link>
       <Text>Feed Header</Text>
     </Box>
   );
