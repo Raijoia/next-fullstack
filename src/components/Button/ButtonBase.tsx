@@ -13,7 +13,7 @@ import { ThemeTypographyVariants } from '@src/theme/theme';
 
 const StyledButton = styled(Text)<any>``;
 
-interface ButtonBase {
+export interface ButtonBaseProps {
   href?: string;
   children: React.ReactNode;
   textVariant?: ThemeTypographyVariants;
@@ -27,7 +27,7 @@ export default function ButtonBase({
   styleSheet,
   href,
   ...props
-}: ButtonBase) {
+}: ButtonBaseProps) {
   const router = useRouter();
   const ref = React.useRef();
   useRipple(ref, {

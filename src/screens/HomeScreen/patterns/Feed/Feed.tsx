@@ -24,6 +24,7 @@ export default function Feed({ children }: FeedProps) {
 Feed.Header = () => {
   return (
     <Box>
+      <Button>Olá pessoas!</Button>
       <Button.Base>
         <Image
           styleSheet={{ width: '128px', height: '128px', borderRadius: '100%' }}
