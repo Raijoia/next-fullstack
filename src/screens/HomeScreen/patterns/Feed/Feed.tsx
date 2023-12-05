@@ -2,6 +2,7 @@
 import React from 'react';
 
 import Box from '@src/components/Box/Box';
+import Button from '@src/components/Button/Button';
 import Icon from '@src/components/Icon/Icon';
 import Image from '@src/components/Image/Image';
 import Link from '@src/components/Link/Link';
@@ -23,11 +24,13 @@ export default function Feed({ children }: FeedProps) {
 Feed.Header = () => {
   return (
     <Box>
-      <Image
-        styleSheet={{ width: '128px', height: '128px', borderRadius: '100%' }}
-        src="https://github.com/Raijoia.png"
-        alt="Imagem de perfil do Raí Joia"
-      />
+      <Button.Base>
+        <Image
+          styleSheet={{ width: '128px', height: '128px', borderRadius: '100%' }}
+          src="https://github.com/Raijoia.png"
+          alt="Imagem de perfil do Raí Joia"
+        />
+      </Button.Base>
       <Icon name="youtube" />
       <Icon name="twitter" />
       <Icon name="instagram" />
