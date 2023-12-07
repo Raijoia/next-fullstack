@@ -1,6 +1,4 @@
 import Box from '@src/components/Box/Box';
-import Link from '@src/components/Link/Link';
-import Text from '@src/components/Text/Text';
 
 import Background from './patterns/Background/Background';
 import Feed from './patterns/Feed/Feed';
@@ -16,18 +14,15 @@ export default function HomeScreen() {
     <Box
       tag="main"
       styleSheet={{
-        backgroundColor: theme.colors.neutral.x400,
+        backgroundColor: theme.colors.neutral.x000,
         flex: 1,
         alignItems: 'center'
       }}
     >
-      <Link href="/sobre">Vá para a página Sobre</Link>
       <Background />
       <Menu />
       <Feed>
         <Feed.Header />
-        <Text variant="display1">Últimas Atualizações</Text>
-        <Feed.Posts />
       </Feed>
       <Footer />
     </Box>
