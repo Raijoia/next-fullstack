@@ -1,23 +1,9 @@
+import { withConfig } from '@src/services/template/withConfig';
+
 export { default } from '@src/screens/HomeScreen/HomeScreen';
 
-// import Box from '@src/components/Box';
-
-// import theme from '@src/theme/theme';
-
-// export default function HomeScreen() {
-//   return (
-//     <Box
-//       tag="main"
-//       styleSheet={{
-//         fontFamily: theme.typography.fontFamily,
-//         backgroundColor: {
-//           xs: 'red',
-//           sm: 'green',
-//           md: 'blue'
-//         }
-//       }}
-//     >
-//       Home
-//     </Box>
-//   );
-// }
+export async function getStaticProps() {
+  return {
+    props: await withConfig({})
+  };
+}
