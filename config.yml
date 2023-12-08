@@ -1,0 +1,12 @@
+site:
+  title: "Raí Joia - Timeline"
+  description: "Bem vindo a minha timeline pessoal"
+
+personal:
+  name: "Raí Joia"
+  avatar: "https://github.com/Raijoia.png"
+  socialNetworks:
+    github: "https://github.com/Raijoia"
+    linkedin: "https://www.linkedin.com/in/raijoia"
+  email: "raijoiamv@gmail.com"
+  idade: "18"
