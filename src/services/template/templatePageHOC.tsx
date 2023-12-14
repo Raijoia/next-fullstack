@@ -13,7 +13,6 @@ export default function templatePageHOC(
   templatePageHOCProps: TemplatePageHOCProps = {}
 ) {
   return function WrappedComponent(props: { config: Config }) {
-    console.log(props);
     return (
       <>
         <Head>

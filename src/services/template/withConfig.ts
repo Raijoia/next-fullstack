@@ -21,7 +21,6 @@ export interface Config {
 export async function withConfig(props = {}) {
   const PATH_CONFIG = path.resolve('.', 'config.yml');
   const config = await readYamlFile<Config>(PATH_CONFIG);
-  console.log(config);
 
   return {
     config,

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Box from '@src/components/Box/Box';
 
 import Background from './patterns/Background/Background';
@@ -9,7 +10,6 @@ import templatePageHOC from '@src/services/template/templatePageHOC';
 import { useTheme } from '@src/theme/ThemeProvider';
 
 function HomeScreen(props) {
-  console.log(props);
   const theme = useTheme();
 
   return (
