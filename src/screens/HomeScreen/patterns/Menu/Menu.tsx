@@ -40,7 +40,7 @@ export default function Menu() {
           }
         }}
       >
-        <Text>MS</Text>
+        <Text>RJ</Text>
       </Button.Base>
 
       <Button.Base
