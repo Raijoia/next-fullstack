@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import { ConfigProvider } from './ConfigContext';
 import { Config } from './withConfig';
 
 interface TemplatePageHOCProps {
@@ -22,7 +23,9 @@ export default function templatePageHOC(
               : props.config.site.title}
           </title>
         </Head>
-        <Component {...props} />
+        <ConfigProvider value={props.config}>
+          <Component {...props} />
+        </ConfigProvider>
       </>
     );
   };

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/display-name */
 import React from 'react';
@@ -9,6 +10,7 @@ import Image from '@src/components/Image/Image';
 import Link from '@src/components/Link/Link';
 import Text from '@src/components/Text/Text';
 
+import { useConfig } from '@src/services/template/ConfigContext';
 import { useTheme } from '@src/theme/ThemeProvider';
 
 interface FeedProps {
@@ -37,6 +39,7 @@ export default function Feed({ children }: FeedProps) {
 
 Feed.Header = () => {
   const theme = useTheme();
+  const config = useConfig();
 
   return (
     <Box
@@ -60,7 +63,7 @@ Feed.Header = () => {
             height: { xs: '100px', md: '128px' },
             borderRadius: '100%'
           }}
-          src="https://github.com/Raijoia.png"
+          src={config?.personal?.avatar}
           alt="Imagem de perfil do Raí Joia"
         />
         <Box
@@ -99,24 +102,29 @@ Feed.Header = () => {
         </Box>
       </Box>
       <Text tag="h1" variant="heading4">
-        Raí Joia
+        {config?.personal?.name}
       </Text>
       <Box
         styleSheet={{
           flexDirection: 'row',
-          gap: '16px',
-          marginTop: '16px'
+          gap: '4px'
         }}
       >
-        <Link href="https://github.com/Raijoia" colorVariant="neutral">
-          <Icon name="github" />
-        </Link>
-        <Link
-          href="https://www.linkedin.com/in/raijoia/"
-          colorVariant="neutral"
-        >
-          <Icon name="linkedin" />
-        </Link>
+        {Object.keys(config.personal.socialNetworks).map((key) => {
+          const socialNetwork = config.personal.socialNetworks[key];
+          if (socialNetwork) {
+            return (
+              <Link
+                key={key}
+                target="_blank"
+                href={config.personal.socialNetworks[key]}
+              >
+                <Icon name={key as any} />
+              </Link>
+            );
+          }
+          return null;
+        })}
       </Box>
     </Box>
   );
