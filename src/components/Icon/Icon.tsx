@@ -17,7 +17,7 @@ interface IconProps {
   size?: keyof typeof iconSizes;
 }
 
-export default function Icon({ size, name, ...props }: IconProps) {
+export default function Icon({ size, name, styleSheet, ...props }: IconProps) {
   const CurrentIcon = icons[name];
   if (!CurrentIcon) {
     return <>{name} is not a valid icon!</>;
@@ -26,7 +26,11 @@ export default function Icon({ size, name, ...props }: IconProps) {
   return (
     <BaseComponent
       as="svg"
-      styleSheet={{ width: iconSizes[size], height: iconSizes[size] }}
+      styleSheet={{
+        width: iconSizes[size],
+        height: iconSizes[size],
+        ...styleSheet
+      }}
       color="inherit"
       fill="currentColor"
       viewBox="0 0 24 24"

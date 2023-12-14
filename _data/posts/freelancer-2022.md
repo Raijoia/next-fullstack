@@ -1,7 +1,9 @@
 ---
 date: 2022-09-17
+image: https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3R1ZHklMjB3aXRoJTIwY29tcHV0ZXJ8ZW58MHx8MHx8fDA%3D
+alt:  "Imagem de um computador"
 title: "Freelancer"
-url:  "https://github.com/Raijoia"
+url:  https://github.com/Raijoia
 excerpt: "Onde tudo começou"
 tags:
   - estudo

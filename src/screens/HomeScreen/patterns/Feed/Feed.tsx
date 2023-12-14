@@ -10,6 +10,9 @@ import Image from '@src/components/Image/Image';
 import Link from '@src/components/Link/Link';
 import Text from '@src/components/Text/Text';
 
+import { FeedPost } from './patterns/FeedPost';
+
+import type { Post } from '@src/services/posts/PostsService';
 import { useConfig } from '@src/services/template/ConfigContext';
 import { useTheme } from '@src/theme/ThemeProvider';
 
@@ -28,7 +31,7 @@ export default function Feed({ children }: FeedProps) {
         width: '100%',
         maxWidth: '683px',
         borderRadius: '8px',
-        paddingVertical: '40px',
+        paddingTop: '40px',
         paddingHorizontal: '32px'
       }}
     >
@@ -130,10 +133,31 @@ Feed.Header = () => {
   );
 };
 
-Feed.Posts = () => {
+interface FeedPostsProps {
+  posts: Post[];
+}
+
+Feed.Posts = ({ posts }: FeedPostsProps) => {
   return (
     <Box>
-      <Text>Feed Posts</Text>
+      <Text variant="heading3" styleSheet={{ marginBottom: '24px' }}>
+        Últimas Atualizações
+      </Text>
+      {posts.map(({ title, slug, metadata, image, alt }) => {
+        const { date, excerpt, tags, url } = metadata;
+        return (
+          <FeedPost
+            key={slug}
+            title={title}
+            date={date}
+            excerpt={excerpt}
+            tags={tags}
+            url={url}
+            image={image}
+            alt={alt}
+          />
+        );
+      })}
     </Box>
   );
 };

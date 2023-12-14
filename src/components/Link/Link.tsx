@@ -1,5 +1,4 @@
 /* eslint-disable react/display-name */
-import NextLink from 'next/link';
 import React from 'react';
 
 import Text from '../Text/Text';
@@ -37,7 +36,7 @@ const Link = React.forwardRef(
     ref
   ) => {
     const theme = useTheme();
-    const isIExternalLink = href.startsWith('http');
+    const isExternalLink = href.startsWith('http');
 
     const currentColorSet = {
       color: theme.colors[colorVariant].x500,
@@ -76,7 +75,7 @@ const Link = React.forwardRef(
       ...props
     };
 
-    if (isIExternalLink)
+    if (isExternalLink)
       return (
         <Text
           {...{
@@ -86,11 +85,7 @@ const Link = React.forwardRef(
         />
       );
 
-    return (
-      <NextLink href={href} passHref>
-        <Text {...linkProps} />
-      </NextLink>
-    );
+    return <Text {...linkProps} />;
   }
 );
 
