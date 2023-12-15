@@ -1,5 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
+import { createClient } from '@supabase/supabase-js';
+
+// Supabase setup
+// ==============================================
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_KEY = process.env.SUPABASE_KEY;
+const dbClient = createClient(SUPABASE_URL, SUPABASE_KEY);
+// ==============================================
+
 const httpStatus = {
   Sucess: 200,
   BadRequest: 400,
@@ -8,11 +17,13 @@ const httpStatus = {
 };
 
 const controllerByMethod = {
-  POST(req: NextApiRequest, res: NextApiResponse) {
+  async POST(req: NextApiRequest, res: NextApiResponse) {
     res.status(httpStatus.Sucess).json({ message: 'POST' });
   },
-  GET(req: NextApiRequest, res: NextApiResponse) {
-    res.status(httpStatus.Sucess).json({ message: 'GET' });
+  async GET(req: NextApiRequest, res: NextApiResponse) {
+    const { data, error } = await dbClient.from('newsletter_users').select('*');
+
+    res.status(httpStatus.Sucess).json({ message: 'GET', total: data.length });
   }
 };
 
