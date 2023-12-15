@@ -43,7 +43,17 @@ export default function NewsletterScreen() {
             return;
           }
           alert('Email cadastrado com sucesso');
+
           // enviar para o servidor o email da pessoa
+          fetch('/api/newsletter/optin', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(form.values)
+          }).then(async (response) => {
+            console.log(await response.json());
+          });
         }}
       >
         <Box
